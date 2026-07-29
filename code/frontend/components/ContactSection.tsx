@@ -125,6 +125,7 @@ export default function ContactSection() {
         {(formState.status === 'idle' || hasError) && (
           <form
             className="contact-form"
+            action={`mailto:${contactConfig.teamEmail}`}
             onSubmit={handleSubmit}
             noValidate
           >
@@ -134,6 +135,7 @@ export default function ContactSection() {
               <input
                 type="text"
                 id="name"
+                name="name"
                 placeholder="Nhập họ tên..."
                 value={formData.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
@@ -157,6 +159,7 @@ export default function ContactSection() {
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="your@email.com"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
@@ -179,6 +182,7 @@ export default function ContactSection() {
               <label htmlFor="message">Nội dung</label>
               <textarea
                 id="message"
+                name="message"
                 placeholder="Mô tả dự án của bạn... (tối thiểu 10 ký tự)"
                 value={formData.message}
                 onChange={(e) => handleInputChange('message', e.target.value)}
